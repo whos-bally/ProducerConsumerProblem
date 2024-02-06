@@ -1,2 +1,1 @@
-# ProducerConsumerProblem
-OS Concurrency &amp; Distribution Lab 2
+# Week 3 - Lab 2
