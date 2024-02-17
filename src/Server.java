@@ -6,11 +6,11 @@ public class Server{
     Consumer consumerThread;
 
     public Server() {
-        //MessageQueue mailBox = new MessageQueue();
+        MessageQueue mailBox = new MessageQueue();
 
         // Create objects
-        producerThread = new Producer();
-        consumerThread = new Consumer();
+        producerThread = new Producer(mailBox);
+        consumerThread = new Consumer(mailBox);
 
         // Create threads
         Thread producer = new Thread(producerThread);

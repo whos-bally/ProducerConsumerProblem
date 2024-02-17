@@ -1,12 +1,30 @@
+import java.util.Date;
+
+/**
+ * @author Bally
+ * Producer class creates a message and adds it to the queue.
+ */
 public class Producer implements Runnable{
 
+    //private final int BUFFER_SIZE = 10;
+    private MessageQueue item;
 
-    /**
-     * @author Bally
-     * Producer class creates a message and adds it to the queue.
-     */
+    public Producer(MessageQueue q){
+        this.item = q;
+    }
+
     @Override
     public void run() {
-        System.out.println("Hello I'm a producer");
+        while(true){
+            // Produce an item and add it to the buffer
+            Date message = new Date();
+                    item.send(message);
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
